@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Roboto Serif", serif;
+}
+body{
+    background-color: #ffffff;
+    padding: 20px;
+}
+.container{
+    max-width: 100%;
+    margin: auto;
+    background-color: #E4E1DD;
+    border-radius: 10px;
+    padding: 20px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h1{
+    font-weight: bold;
+    font-size: 24px;
+}
+.search_bar{
+    position: relative;
+}
+.search_bar input[type="text"] {
+    width: 82%;
+    padding: 6px;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    font-size: 16px;
+}
+.search_bar button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.table_container{
+    width: 100%;
+    overflow-x: auto;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    min-width: 600px;
+}
+th, td{
+    padding: 10px;
+    text-align: center;
+}
+table, th, td{
+    border: 2px solid black;
+}
+.not_found{
+    margin-top: 20px;
+    color: red;
+    font-size: 24px;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .search_bar input[type="text"]{
+        width: 100%;
+    }
+}

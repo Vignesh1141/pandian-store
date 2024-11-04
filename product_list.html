@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PST_Product_List</title>
+    <link rel="stylesheet" href="CSS/product_list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel='stylesheet'href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PANDIAN STORES & TRADERS</h1>
+            <div class="search_bar">
+                <input type="text" id="search_input" placeholder="Search Products..." oninput="searchTable()" onkeypress="checkEnter(event)">
+                <button id="search_btn" onclick="searchTable()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <div class="table_container">
+            <!-- Cement -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="5">சிமெண்ட்/Cement</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-கிலோ</th> <th>1/2-மூடை</th> <th>1-மூடை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>டால்மியா சிமெண்ட்/Dalmia Cement</td> <td>6-120-6</td> <td>Rs.10</td> <td>Rs.230</td> <td>Rs.320</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- White Cement -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="7">பிர்லா ஒயிட் சிமெண்ட்/Brila White Cement</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>1-கிலோ</th> <th>5-கிலோ</th> <th>25-கிலோ</th> <th>1-மூடை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>பிர்லா ஒயிட் சிமெண்ட்/Brila White Cement</td> <td>6526/Rs.35</td> <td>6526/Rs.150</td> <td>6526/Rs.650</td> <td>6526/Rs.1100</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Sunnambu -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="7">சுண்ணாம்பு/Sunnambu</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>1-கிலோ</th> <th>5-கிலோ</th> <th>10-கிலோ</th> <th>20-கிலோ</th> <th>40-கிலோ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>சேவல் சுண்ணாம்பு/Seaval Sunnambu</td> <td>Rs.20</td> <td>6526/Rs.80</td> <td>6526/Rs.160</td> <td>6526/Rs.160</td> <td>6526/Rs.160</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Surya Sem -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="5">சூர்யா செம்/Surya Sem</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>5-கிலோ</th> <th>10-கிலோ</th> <th>25kg-மூடை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>சூர்யா செம்/Surya Sem</td> <td>6526/Rs.130</td> <td>6526/Rs.260</td> <td>6526/Rs.550</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Pati Maavu -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="5">பட்டி மாவு/Pati Maavu</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-கிலோ</th> <th>40kg-மூடை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>பட்டி மாவு/Pati Maavu</td> <td>6-120-6</td> <td>Rs.40</td> <td>Rs.1100</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Tiles Maavu -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="4">டைல்ஸ் மாவு/Tiles Maavu</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>20kg-மூடை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>டைல்ஸ் மாவு/Tiles Maavu</td> <td>6-120-6</td> <td>Rs.1100</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Surukki Sunnambu -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="4">சுருக்கி சுண்ணாம்பு/Surukki Sunnambu</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1   -மூடை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>சுருக்கி சுண்ணாம்பு/Surukki Sunnambu</td> <td>6-120-6</td> <td>Rs.1100</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Plain Thaharam -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">பிளைன் தகரம்/Plain Thaharam</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-சதுர அடி விலை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>2', 2 1/2', 3', 4' பிளைன் தகரம்/Plain Thaharam</td> <td>6-120-6</td> <td>Rs.33</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>2', 2 1/2', 3', 4' புளு பிளைன் தகரம்/Blue Plain Thaharam</td> <td>6-120-6</td> <td>Rs.35</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Kolavu Thaharam -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">கொளவு தகரம்/Kolavu Thaharam</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-தகரம் விலை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>6-அடி கொளவு தகரம்/Kolavu Thaharam</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>8-அடி கொளவு தகரம்/Kolavu Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>10-அடி கொளவு தகரம்/Kolavu Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                    <tr>
+                        <td>4</td> <td>12-அடி கொளவு தகரம்/Kolavu Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Blue Thaharam -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">புளு தகரம்/Blue Thaharam</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-தகரம் விலை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>6-அடி புளு தகரம்/Blue Thaharam</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>8-அடி புளு தகரம்/Blue Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>10-அடி புளு தகரம்/Blue Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                    <tr>
+                        <td>4</td> <td>12-அடி புளு தகரம்/Blue Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Blue Bend Thaharam -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">புளு பென்டு தகரம்/Bendu Thaharam</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-தகரம் விலை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>6-அடி புளு பென்டு தகரம்/Bendu Thaharam</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>8-அடி புளு பென்டு தகரம்/Bendu Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>10-அடி புளு பென்டு தகரம்/Bendu Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                    <tr>
+                        <td>4</td> <td>12-அடி புளு பென்டு தகரம்/Bendu Thaharam</td> <td>6-120-6</td> <td>Rs.62</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Oorundai Pipe -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">உருண்டை பைப்/Oorundai Pipe</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-அடி</th> <th>1-பைப் விலை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>1 1/4' உருண்டை பைப்/Oorundai Pipe</td> <td>6-120-6</td> <td>Rs.63</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>1 1/2' உருண்டை பைப்/Oorundai Pipe</td> <td>6-120-6</td> <td>Rs.62</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>2' உருண்டை பைப்/Oorundai Pipe</td> <td>6-120-6</td> <td>Rs.62</td> <td>Rs.63</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Sathura Pipe -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">சதுர பைப்/Sathura Pipe</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-பைப் விலை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>1 1/4' சதுர பைப்/Sathura Pipe</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>1 1/2' சதுர பைப்/Sathura Pipe</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>2' சதுர பைப்/Sathura Pipe</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Vellai Oorundai Pipe -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">வெள்ளை உருண்டை பைப்/Vellai Oorundai Pipe</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-பைப் விலை</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>1 1/4' வெள்ளை உருண்டை பைப்/Vellai Oorundai Pipe</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>1 1/2' வெள்ளை உருண்டை பைப்/Vellai Oorundai Pipe</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>2' வெள்ளை உருண்டை பைப்/Vellai Oorundai Pipe</td> <td>6-120-6</td> <td>Rs.63</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- NGA kambi -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">NGA kambi/NGA கம்பி</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-kg-விலை</th> <th>1-கம்பி</th> <th>1-கட்டு</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>8MM kambi/கம்பி</td> <td>6-120-6</td> <td>Rs.63</td> <td>Rs.315</td> <td>Rs.3024</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>10MM kambi/கம்பி</td> <td>6-120-6</td> <td>Rs.62</td> <td>Rs.434</td> <td>Rs.2976</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>12MM kambi/கம்பி</td> <td>6-120-6</td> <td>Rs.62</td> <td>Rs.682</td> <td>Rs.3286</td>
+                    </tr>
+                    <tr>
+                        <td>4</td> <td>16MM kambi/கம்பி</td> <td>6-120-6</td> <td>Rs.62</td> <td>Rs.1116</td> <td>Rs.3348</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Kiscol Kambi -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">Kiscol Kambi/NGA கம்பி</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-kg-விலை</th> <th>1-கம்பி</th> <th>1-கட்டு</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>8MM kambi/கம்பி</td> <td>6-120-6</td> <td>Rs.63</td> <td>Rs.315</td> <td>Rs.3024</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>10MM kambi/கம்பி</td> <td>6-120-6</td> <td>Rs.62</td> <td>Rs.434</td> <td>Rs.2976</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>12MM kambi/கம்பி</td> <td>6-120-6</td> <td>Rs.62</td> <td>Rs.682</td> <td>Rs.3286</td>
+                    </tr>
+                    <tr>
+                        <td>4</td> <td>16MM kambi/கம்பி</td> <td>6-120-6</td> <td>Rs.62</td> <td>Rs.1116</td> <td>Rs.3348</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- PVC Pipe -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="5">PVC Pipe/பைப்</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-அடி</th> <th>1-லெந்த்</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>1/2' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>3/4' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>3</td> <td>1' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>4</td> <td>1 1/4' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>5</td> <td>1 1/2' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>6</td> <td>2' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>7</td> <td>2 1/2' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>8</td> <td>3' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>9</td> <td>4' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>10</td> <td>5' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>11</td> <td>6' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>12</td> <td>7' PVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- CPVC Pipe -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="5">CPVC Pipe/பைப்</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>1-அடி</th> <th>1-லெந்த்</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>3/4' CPVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>1' cPVC Pipe/பைப்</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Aani/ஆணி-->
+            <table id="product_table">
+                <thead>
+                    <th colspan="6">Aani/ஆணி</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>100-கிராம்</th> <th>1-கிலோ</th> <th>1-கட்டு</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>1' to 5' Motto Aani/மோட்டோ ஆணி</td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.100</td> <td>Rs.200</td>
+                    </tr>
+                    <tr>
+                        <td>2</td> <td>2' Sannam Aani/சன்னம் ஆணி</td> <td>6-120-6</td> <td>Rs.20</td> <td>Rs.100</td> <td>Rs.200</td> 
+                    </tr>
+                </tbody>  
+            </table>
+            <!-- Boalt/போல்ட்-->
+            <table id="product_table">
+                <thead>
+                    <th colspan="5">Boalt/போல்ட்</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>100-கிராம்</th> <th>1-கிலோ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>Boalt/போல்ட் </td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- PVC Pipe -->
+            <table id="product_table">
+                <thead>
+                    <th colspan="5">Boalt/போல்ட்</th>
+                    <tr>
+                        <th>S.No</th> <th>பெயர்</th> <th>ID</th> <th>100-கிராம்</th> <th>1-கிலோ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>Boalt/போல்ட் </td> <td>6-120-6</td> <td>Rs.15</td> <td>Rs.150</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="not_found" id="NotFound">Product not available</div>
+    </div>
+    <script src="product.js">
+    </script>
+</body>
+</html>

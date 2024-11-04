@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Cart Page</title>
+<style>
+    /* Basic Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+    /* Header Styles */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .search-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-input {
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 100%;
+    }
+    .search-btn {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    .cart-icon {
+        font-size: 24px;
+        cursor: pointer;
+        position: relative;
+    }
+    .cart-icon .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+    /* Cart Panel Styles */
+    .cart-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        max-width: 300px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+    .cart-panel.active {
+        transform: translateX(0);
+    }
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .cart-items {
+        margin-bottom: 20px;
+    }
+    .cart-item {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+    }
+    .cart-item img {
+        max-width: 50px;
+        max-height: 50px;
+        margin-right: 10px;
+    }
+    .product-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .quantity-btn {
+        cursor: pointer;
+    }
+    .remove-btn {
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    /* Table Styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        overflow-x: auto;
+    }
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 10px;
+        }
+        .search-bar {
+            align-items: center;
+            flex-direction: row;
+        }
+        .search-input {
+            width: 70%;
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+        .cart-icon {
+            font-size: 20px;
+        }
+        .close-btn {
+            top: 5px;
+            right: 5px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="search-bar">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search products..." onkeydown="if(event.keyCode === 13) { searchProducts(); return false; }">
+            <button class="search-btn" onclick="searchProducts()">Search</button>
+        </div>
+        <div class="cart-icon" onclick="toggleCartPanel()">
+            &#128722;<span class="badge" id="cartItemCount">0</span>
+        </div>
+    </header>
+
+    <!-- Cart Panel -->
+    <div class="cart-panel" id="cartPanel">
+        <span class="close-btn" onclick="toggleCartPanel()">&#10006;</span>
+        <h2>Shopping Cart</h2>
+        <div class="cart-items" id="cartItems"></div>
+        <button onclick="redirectToPayment()">Proceed to Payment</button>
+    </div>
+
+    <!-- Product Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody id="productTableBody">
+            <!-- Products will be dynamically added here -->
+            <tr>
+                <td>1</td>
+                <td><img src="https://via.placeholder.com/50" alt="Product 1"></td>
+                <td>Product 1</td>
+                <td>$10</td>
+                <td>
+                    <button class="quantity-btn" onclick="decreaseQuantity(0)">-</button>
+                    <span id="quantity0" data-price="10">0</span>
+                    <button class="quantity-btn" onclick="increaseQuantity(0)">+</button>
+                </td>
+                <td id="subtotal0">$0</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="https://via.placeholder.com/50" alt="Product 2"></td>
+                <td>Product 2</td>
+                <td>$20</td>
+                <td>
+                    <button class="quantity-btn" onclick="decreaseQuantity(1)">-</button>
+                    <span id="quantity1" data-price="20">0</span>
+                    <button class="quantity-btn" onclick="increaseQuantity(1)">+</button>
+                </td>
+                <td id="subtotal1">$0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img src="https://via.placeholder.com/50" alt="Product 3"></td>
+                <td>Product 3</td>
+                <td>$30</td>
+                <td>
+                    <button class="quantity-btn" onclick="decreaseQuantity(2)">-</button>
+                    <span id="quantity2" data-price="30">0</span>
+                    <button class="quantity-btn" onclick="increaseQuantity(2)">+</button>
+                </td>
+                <td id="subtotal2">$0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Dummy Data -->
+    <script>
+        // Cart Panel
+        const cartPanel = document.getElementById("cartPanel");
+        const toggleCartPanel = () => {
+            cartPanel.classList.toggle("active");
+        };
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchProducts = () => {
+            const searchQuery = searchInput.value.toLowerCase();
+            const productList = document.querySelectorAll('#productTableBody tr');
+            productList.forEach(product => {
+                const productName = product.querySelector('td:nth-child(3)').innerText.toLowerCase();
+                if (productName.includes(searchQuery)) {
+                    product.style.display = 'table-row';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        };
+
+        // Cart Functionality
+        const cartItems = document.getElementById("cartItems");
+        const cartItemCount = document.getElementById("cartItemCount");
+        let cart = [];
+        const addToCart = (productId, productName, productPrice) => {
+            const existingItemIndex = cart.findIndex(item => item.id === productId);
+            if (existingItemIndex !== -1) {
+                cart[existingItemIndex].quantity++;
+            } else {
+                cart.push({ id: productId, name: productName, price: productPrice, quantity: 1 });
+            }
+            renderCart();
+        };
+
+        const removeFromCart = (index) => {
+            if (index >= 0 && index < cart.length) {
+                cart.splice(index, 1);
+            }
+            renderCart();
+        };
+
+        const renderCart = () => {
+            cartItems.innerHTML = '';
+            let totalPrice = 0;
+            let totalItems = 0;
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.quantity;
+                totalPrice += subtotal;
+                totalItems += item.quantity;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <img src="https://via.placeholder.com/50" alt="${item.name}">
+                        <div class="product-info">
+                            <span>${item.name}</span>
+                            <button class="quantity-btn" onclick="decreaseQuantity(${index})">-</button>
+                            <span id="cartQuantity${item.id}">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="increaseQuantity(${index})">+</button>
+                            <span>$${item.price} x <span id="cartQuantityPrice${item.id}">${item.quantity}</span></span>
+                            <span>$${subtotal}</span>
+                            <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                        </div>
+                    </div>
+                `;
+                // Update quantity and subtotal in product table
+                document.getElementById(`quantity${item.id}`).innerText = item.quantity;
+                document.getElementById(`subtotal${item.id}`).innerText = `$${subtotal}`;
+            });
+            cartItems.innerHTML += `<strong>Total: $${totalPrice}</strong>`;
+            cartItemCount.textContent = totalItems;
+        };
+
+        const increaseQuantity = (index) => {
+            const quantityElement = document.getElementById(`cartQuantity${cart[index].id}`);
+            const quantity = parseInt(quantityElement.innerText);
+            quantityElement.innerText = quantity + 1;
+            updateSubtotal(index, quantity + 1);
+            cart[index].quantity++;
+            renderCart();
+        };
+
+        const decreaseQuantity = (index) => {
+            const quantityElement = document.getElementById(`cartQuantity${cart[index].id}`);
+            const quantity = parseInt(quantityElement.innerText);
+            if (quantity > 0) {
+                quantityElement.innerText = quantity - 1;
+                updateSubtotal(index, quantity - 1);
+                cart[index].quantity--;
+            }
+            renderCart();
+        };
+
+        const updateSubtotal = (index, newQuantity) => {
+            const price = cart[index].price;
+            const subtotal = price * newQuantity;
+            document.getElementById(`cartQuantityPrice${cart[index].id}`).innerText = newQuantity;
+            document.getElementById(`subtotal${cart[index].id}`).innerText = `$${subtotal}`;
+            renderCart();
+        };
+
+        const redirectToPayment = () => {
+            // Redirect to payment page or handle payment process here
+            console.log("Redirecting to payment page...");
+        };
+
+        // Hide Cart Panel on clicking outside
+        document.addEventListener('click', (event) => {
+            if (!cartPanel.contains(event.target) && event.target !== document.querySelector('.cart-icon')) {
+                cartPanel.classList.remove("active");
+            }
+        });
+    </script>
+</div>
+
+</body>
+</html>
